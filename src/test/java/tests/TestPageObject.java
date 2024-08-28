@@ -8,7 +8,7 @@ public class TestPageObject extends TestBase{
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    void testPositiveForAllRegistration() {
+    void PositiveForAllRegistrationTest() {
         registrationPage.openPage()
                 .firstName("Andrew")
                 .lastName("Olkhovskii")
@@ -39,7 +39,7 @@ public class TestPageObject extends TestBase{
     }
 
     @Test
-    void testWithRequiredFields(){
+    void WithRequiredFieldsTest(){
         registrationPage.openPage();
 
         registrationPage.firstName("Andrew")
@@ -56,7 +56,7 @@ public class TestPageObject extends TestBase{
     }
 
     @Test
-    void testNegative(){
+    void NegativeTest(){
         registrationPage.openPage();
 
         registrationPage.firstName("Andrew")
