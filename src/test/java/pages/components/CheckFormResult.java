@@ -1,7 +1,9 @@
 
 package pages.components;
 
-import static com.codeborne.selenide.Condition.text;
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -20,4 +22,35 @@ public class CheckFormResult {
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(address));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(stateAndCity));
     }
+
+    public CheckFormResult checkHeader() {
+        resultWindowHeader
+                .shouldBe(visible)
+                .shouldHave(text("Thanks for submitting the form"));
+        return this;
+    }
+
+    private final SelenideElement resultWindow = $(".modal-dialog"),
+            resultWindowHeader = resultWindow.$("#example-modal-sizes-title-lg"),
+            resultTable = resultWindow.$(".table-responsive");
+
+    public CheckFormResult checkTableValue(String key, String value) {
+        resultTable
+                .$(byText(key))
+                .parent()
+                .shouldHave(text(value));
+        return this;
+    }
+
+    public CheckFormResult notAppear() {
+        resultWindow.shouldNot(appear);
+        return this;
+    }
+
+    public CheckFormResult appear() {
+        resultWindow.should(appear);
+        return this;
+    }
+
+
 }

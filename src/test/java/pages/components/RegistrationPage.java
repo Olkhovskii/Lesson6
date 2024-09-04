@@ -1,7 +1,5 @@
 package pages.components;
 import com.codeborne.selenide.SelenideElement;
-import pages.components.Calendar;
-import pages.components.CheckFormResult;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -36,62 +34,62 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage firstName(String value) {
+    public RegistrationPage setFirstName(String value) {
         firstName.setValue(value);
 
         return this;
     }
 
-    public RegistrationPage lastName(String value) {
+    public RegistrationPage setLastName(String value) {
         lastName.setValue(value);
 
         return this;
     }
 
-    public RegistrationPage email(String value) {
+    public RegistrationPage setUserEmail(String value) {
         userEmail.setValue(value);
 
         return this;
     }
 
-    public RegistrationPage userGender(String value) {
+    public RegistrationPage setGender(String value) {
         gender.$(byText(value)).click();
 
         return this;
     }
 
-    public RegistrationPage userNumber(String value) {
+    public RegistrationPage setUserNumber(String value) {
         number.setValue(value);
         return this;
     }
-    public RegistrationPage dateOfBirth(String day, String month, String year) {
+    public RegistrationPage setDateOFBirth(String day, String month, String year) {
         dateBirthInput.click();
         calendar.setDate(day, month, year);
         return this;
     }
 
-    public RegistrationPage userSubjects(String value) {
+    public RegistrationPage setSubjects(String value) {
         subjects.setValue(value).pressEnter();
         return this;
     }
-    public RegistrationPage userHobbies(String value) {
+    public RegistrationPage setHobbies(String value) {
         hobbies.$(byText(value)).click();
         return this;
     }
-    public RegistrationPage upLoadUserPicture(String value) {
+    public RegistrationPage setPicture(String value) {
         picture.uploadFromClasspath(value);
         return this;
     }
-    public RegistrationPage userAdress(String value) {
+    public RegistrationPage setAddress(String value) {
         address.setValue(value).pressEnter();
         return this;
     }
-    public RegistrationPage userState(String value) {
+    public RegistrationPage setState(String value) {
         state.click();
         state.$(byText(value)).click();
         return this;
     }
-    public RegistrationPage userCity(String value) {
+    public RegistrationPage setCity(String value) {
         city.click();
         city.$(byText(value)).click();
         return this;
@@ -116,9 +114,5 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkOneResult(String key, String value) {
-        checkOneResult.$(byText(key)).parent().shouldHave(text(value));
-        return this;
-    }
 
 }
